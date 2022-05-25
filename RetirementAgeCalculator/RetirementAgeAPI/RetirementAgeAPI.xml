@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>RetirementAgeAPI</name>
+    </assembly>
+    <members>
+        <member name="M:RetirementAgeAPI.Controllers.RetirementController.GetRetirementById(System.Int32)">
+            <summary>
+            This Api retrieves the Retirement details (including the calculated 
+            retirement age) for the specified Id.
+            </summary>
+            <param name="id">Retirement details Id</param>
+            <returns>RetirementReadDto</returns>
+        </member>
+        <member name="M:RetirementAgeAPI.Controllers.RetirementController.GetRetirementAge(BusinessLayer.DTO.RetirementCreateDto)">
+            <summary>
+            This api uses the input parameter RetirementCreateDto
+            and based on the details in the dto calculates the Retirement Age.
+            It also persists the retirement details to the db if 
+            SaveDetails parameter of the RetirementCreateDto is true.
+            </summary>
+            <param name="retirementCreateDto">Retirement Details</param>
+            <returns>
+                        RetirementAgeDetailsDto : contains Id and RetirementAge
+                        Id = 0 if the retirement details are not saved in the DB
+                        Id = non zero if saved
+             </returns>
+        </member>
+    </members>
+</doc>
