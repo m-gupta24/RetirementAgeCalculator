@@ -30,6 +30,7 @@ One API endpoint to authenticate with JWT and accessing a restricted route with 
 - /user/authenticate - accepts HTTP POST requests containing the username and password in the body. If the username and password are correct then a JWT authentication token and the user details are returned.
 - For simplicity the identity microservice stores the users in memory. 
 - New user creation facility is not provided.
+- In a production application it is recommended to store user records in a database with hashed passwords.
 
 **RetirementAgeApi Microservice**
 Two API endpoints 
@@ -43,4 +44,13 @@ Two API endpoints
 
 High Level Design of RetirementAgeApi microservice
 ![image](https://user-images.githubusercontent.com/106247411/170290937-fb66df6d-c9e8-4291-8fba-550058f8fc5f.png)
+
+**Authorization**
+Middleware checks if there is a token in the request Authorization header, and if so attempts to Validate the token using the secret stored in the appsettings.json file. If there is no token in the request header or if validation fails, then the user does not have access to the secure routes.
+
+**Exception Handling**
+ The application uses middleware to handle Exceptions as part of your http pipeline.
+ 
+ **RetirementDBScript**
+ Create the required schema using the script. \RetirementAgeCalculator\RetirementDBScript.sql
 
