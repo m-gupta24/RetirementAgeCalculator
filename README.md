@@ -14,7 +14,7 @@ The application makes the following assumptions while calculating the age -
 
 - Annual Interest Rate on invested savings - 5% (ROI)
 - Current Retirement Savings = 0
-- You should be atleast 18 years when you plan retirement
+- Current age should be 18
 
 First the yearly savings are calculated.
 Assuming that the savings are invested with a return of 5% compounded annually.
@@ -40,4 +40,7 @@ Two API endpoints
      
       
 **/Retirement/{id}** - accepts HTTP GET requests. For the ID specified in the request, details are fetched from the DB, Retirement age is calculated and the result along with the other details are returned. If the Id details are not in DB the NOT FOUND is returned.
+
+High Level Design of RetirementAgeApi microservice
+![image](https://user-images.githubusercontent.com/106247411/170290937-fb66df6d-c9e8-4291-8fba-550058f8fc5f.png)
 
